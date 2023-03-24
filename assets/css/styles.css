@@ -1,6 +1,7 @@
 body {
   font-family: Arial;
   font-size: 120%;
+  background-color: #f0f0f0;
 }
 
 a {
@@ -39,24 +40,38 @@ input[type="text"] {
 }
 
 ol {
-  padding-left: 0px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   max-height: 400px;
-  overflow: auto;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
 }
 
 li {
   padding: 5px;
   list-style: decimal inside none;
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
 li:nth-child(odd) {
   background-color: #f3edfc;
+
 }
 
 .wrapper {
-  margin: 100px auto 0 auto;
-  max-width: 600px;
+  margin: 50px auto;
+  max-width: 800px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hide {
@@ -82,8 +97,23 @@ li:nth-child(odd) {
   border-top: 2px solid #ccc;
 }
 
+a{
+  text-align: center;
+  color: #563d7c;
+}
+
 .timer {
   position: absolute;
   top: 10px;
   right: 10px;
+  color: white;
+  background-color: #563d7c;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 120%;
+}
+
+h1 {
+  text-align: center;
+  color: #563d7c;
 }

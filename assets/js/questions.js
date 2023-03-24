@@ -27,13 +27,13 @@ var questions = [
       "String values must be enclosed within ________ when being assigned to variables",
     answers: ["commas", "curly brackets", "quotes", "parenthesis"],
 
-    correct: "2",
+    correct: 2,
   },
   {
     question:
       "A very useful tool used for developing and debugging for printing content to the debugger is:",
     answers: ["JavaScript", "terminal / bash", "for loops", "console.log"],
 
-    correct: "3",
+    correct: 3,
   },
 ];

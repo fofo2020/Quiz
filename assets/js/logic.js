@@ -10,10 +10,13 @@ var startSection = document.getElementById("start-screen");
 var questionsContainer = document.getElementById("questions");
 var questionsTitle = document.getElementById("question-title");
 var choicesContainer = document.getElementById("choices");
+var endScreen = document.getElementById("end-screen");
 var startBtn = document.getElementById("start");
 var timerSpan = document.getElementById("time");
 var totalTime = 60;
 var questionIndex = 0;
+
+var submitBtn = document.getElementById("submit");
 
 // function to start the quiz
 function startQuiz() {
@@ -57,8 +60,17 @@ function displayQuestion() {
     //Event listnet to click button
     answerBtn.addEventListener("click", (event) => {
       if (parseInt(event.target.id, 10) === questions[questionIndex].correct) {
-        questionIndex++;
-        displayQuestion();
+        questionIndex++; 
+        if  (questionIndex>=questions.length){
+          
+          startSection.classList.add("hide");
+          questionsContainer.classList.add("hide")
+          endScreen.classList.remove("hide");
+
+        }else{
+          displayQuestion();
+        }
+        
       } else {
         totalTime -= 10;
         timerSpan.textContent = totalTime;
@@ -68,6 +80,26 @@ function displayQuestion() {
 
   console.log("Correct answer index:" + questions[questionIndex].correct);
 }
+// Save score function on High Scores array
 function saveScore() {}
+  function saveInitials(){
+  var initials = document.getElementById("initials");
+  var initials = initials.value
+  var scores = JSON.parse(localStorage.getItem("highScores")) || []; 
+  
+var userScore = {
+  score: totalTime,
+  initials
+}
 
+//Push scores to local Storage
+scores.push(userScore);
+localStorage.setItem("highScores", JSON.stringify(scores));
+window.location.href="highscores.html"
+
+  }
+
+//Event listner  to start the quiz
 startBtn.addEventListener("click", startQuiz);
+//Event listner  to submit Initials
+submitBtn.addEventListener("click", saveInitials)
